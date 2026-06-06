@@ -80,7 +80,7 @@ const projects: Project[] = [
   description: 'AI-powered inventory intelligence platform with demand forecasting and anomaly detection.',
   longDescription:
   'AI-driven inventory system that predicts product demand, detects sales anomalies, and provides real-time risk scoring for inventory optimization. Implements ML-based demand forecasting, anomaly detection (Isolation Forest & Z-score), and an event-driven backend for automated stock updates and alerts. Includes a role-based dashboard for inventory insights and decision making.',
-  image: '/assets/images/InvexaIMS.png',
+  image: '/assets/images/InvexaIMs.png',
   imageAlt: 'Inventory management dashboard with demand forecasting charts, anomaly detection alerts, and role-based analytics on dark UI',
   tags: ['React', 'Spring Boot', 'Java 17', 'Python', 'FastAPI', 'Scikit-learn', 'MySQL'],
   github: 'https://github.com/SamadhiJagathsiri/AI-Inventory-System-Invexa',
