@@ -35,7 +35,7 @@ const AppImage = memo(function AppImage({
     fill = false,
     sizes,
     onClick,
-    fallbackSrc = '/assets/images/no_image.png',
+    fallbackSrc = '/assets/images/profile1.png',
     loading = 'lazy',
     unoptimized = false,
     ...props
@@ -49,9 +49,6 @@ const AppImage = memo(function AppImage({
         setIsLoading(true);
         setHasError(false);
     }, [src]);
-
-      const isExternalUrl = useMemo(() => typeof imageSrc === 'string' && imageSrc.startsWith('http'), [imageSrc]);
-    const isLocalAsset = useMemo(() => typeof imageSrc === 'string' && imageSrc.startsWith('/'), [imageSrc]);
 
     const handleError = useCallback(() => {
         if (!hasError && imageSrc !== fallbackSrc) {
@@ -80,7 +77,9 @@ const AppImage = memo(function AppImage({
             className: imageClassName,
             quality,
             placeholder,
-            unoptimized: resolvedUnoptimized,
+            unoptimized:
+                unoptimized ||
+                (typeof imageSrc === 'string' && (imageSrc.startsWith('http') || imageSrc.startsWith('/'))),
             onError: handleError,
             onLoad: handleLoad,
             onClick,
@@ -97,7 +96,7 @@ const AppImage = memo(function AppImage({
         }
 
         return baseProps;
-    }, [imageSrc, alt, imageClassName, quality, placeholder, blurDataURL, resolvedUnoptimized, priority, loading, handleError, handleLoad, onClick]);
+    }, [imageSrc, alt, imageClassName, quality, placeholder, blurDataURL, unoptimized, priority, loading, handleError, handleLoad, onClick]);
 
     if (fill) {
         return (
