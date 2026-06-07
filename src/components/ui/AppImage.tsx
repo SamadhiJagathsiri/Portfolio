@@ -50,8 +50,8 @@ const AppImage = memo(function AppImage({
         setHasError(false);
     }, [src]);
 
-    const isExternalUrl = useMemo(() => typeof imageSrc === 'string' && imageSrc.startsWith('http'), [imageSrc]);
-    const resolvedUnoptimized = unoptimized || isExternalUrl;
+      const isExternalUrl = useMemo(() => typeof imageSrc === 'string' && imageSrc.startsWith('http'), [imageSrc]);
+    const isLocalAsset = useMemo(() => typeof imageSrc === 'string' && imageSrc.startsWith('/'), [imageSrc]);
 
     const handleError = useCallback(() => {
         if (!hasError && imageSrc !== fallbackSrc) {
